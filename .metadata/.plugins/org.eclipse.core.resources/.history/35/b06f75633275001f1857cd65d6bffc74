@@ -1,0 +1,28 @@
+package aapr.consultorio.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import aapr.consultorio.model.Consultorio;
+import aapr.consultorio.service.ConsultorioService;
+
+@RestController
+@RequestMapping("/consultorio/registros")
+public class ConsultorioConstroller {
+private ConsultorioService consultorioService;
+
+@Autowired
+public ConsultorioConstroller(ConsultorioService consultorioService) {
+	super();
+	this.consultorioService = consultorioService;
+}
+
+@GetMapping("/kosmos")
+public List<Consultorio> getMappingAll(){
+	return consultorioService.getAll();
+}
+
+}
